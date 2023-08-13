@@ -6,12 +6,15 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
+    
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
+
       - name: Upload video
         uses: actions/upload-artifact@v3
         if: always()
@@ -19,7 +22,8 @@ jobs:
           name: Test video
           path: reports/html/videos
           retention-days: 14
-        - name: Upload visual report
+
+      - name: Upload visual report
         uses: actions/upload-artifact@v3
         if: always()
         with:
