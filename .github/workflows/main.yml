@@ -15,18 +15,11 @@ jobs:
         with:
           browser: chrome
 
-      - name: Upload video
+      - name: Upload report
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: Test video
-          path: cypress/reports/html/videos
+          name: Test report
+          path: cypress/reports/html
           retention-days: 14
-
-      - name: Upload visual report
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: Visual report
-          path: cypress/reports/html/index.html
-          retention-days: 14
+          
