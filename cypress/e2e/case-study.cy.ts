@@ -29,7 +29,7 @@ describe('Homa games tech test', () => {
     expectUrl('https://lab-v2.homagames.com/login');
   });
 
-  it('I can view Social Media Linksat the bootom of the page', () => {
+  it('I can view Social Media Links at the bottom of the page', () => {
     visitHoma();
     cy.scrollTo('bottom');
     checkSocialLinks();
