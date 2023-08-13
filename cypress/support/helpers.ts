@@ -24,7 +24,7 @@ export function getLink(href: string | string[]): Cypress.Chainable {
 /*
   Inspired by https://github.com/cypress-io/cypress/issues/877#issuecomment-982063460
   This function is used to know if an element is visible in the current display.
-  "should('be.visible')" only check if an element exists in the DOM, in actual display or not.
+  "should('be.visible')" only checks if an element exists in the DOM, in actual display or not.
 */
 export function isInViewport(window: Cypress.AUTWindow, $el: JQuery<HTMLElement>) {
   const { documentElement } = window.document;
