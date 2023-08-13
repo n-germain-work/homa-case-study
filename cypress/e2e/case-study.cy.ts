@@ -31,7 +31,8 @@ describe('Homa games tech test', () => {
 
   it('I can view Social Media Linksat the bootom of the page', () => {
     visitHoma();
-    cy.scrollTo('bottom', {easing: 'linear', duration: 100}).then(() => checkSocialLinks());
+    cy.scrollTo('bottom');
+    checkSocialLinks();
   });
 });
 
@@ -41,6 +42,7 @@ function checkSocialLinks(): Cypress.Chainable {
   for (const [_media, _link] of Object.entries(socialMediaLinks)) {
     const getSocialLink = cy.get('footer').find(`a[href*="${_link}"]`);
     getSocialLink.should('be.visible'); // this only checks if the link is in the DOM
+    cy.wait(1000); // I really don't like it...
     getSocialLink.then(($el) => {
       cy.window().then((window) => {
         const linkInViewport = isInViewport(window, $el);
