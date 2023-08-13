@@ -31,8 +31,7 @@ describe('Homa games tech test', () => {
 
   it('I can view Social Media Linksat the bootom of the page', () => {
     visitHoma();
-    cy.scrollTo('bottom');
-    checkSocialLinks();
+    cy.scrollTo('bottom', {easing: 'linear', duration: 100}).then(() => checkSocialLinks());
   });
 });
 
