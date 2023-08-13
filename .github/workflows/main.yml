@@ -13,9 +13,9 @@ jobs:
         with:
           browser: chrome
       - name: Upload video
-            uses: actions/upload-artifact@v2
-            if: always()
-            with:
-              name: Test videos
-              path: cypress/videos
-              retention-days: 14
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test videos
+          path: cypress/videos
+          retention-days: 14
