@@ -6,7 +6,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
-    
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -20,7 +20,7 @@ jobs:
         if: always()
         with:
           name: Test video
-          path: reports/html/videos
+          path: cypress/reports/html/videos
           retention-days: 14
 
       - name: Upload visual report
@@ -28,5 +28,5 @@ jobs:
         if: always()
         with:
           name: Visual report
-          path: reports/html/index.html
+          path: cypress/reports/html/index.html
           retention-days: 14
