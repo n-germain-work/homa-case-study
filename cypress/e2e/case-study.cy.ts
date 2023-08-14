@@ -32,6 +32,7 @@ describe('Homa games tech test', () => {
   it('I can view Social Media Links at the bottom of the page', () => {
     visitHoma();
     cy.scrollTo('bottom');
+    cy.wait(2000); // I really don't like it... Github actions seems really slow compared to paid CI.
     checkSocialLinks();
   });
 });
@@ -42,7 +43,6 @@ function checkSocialLinks(): Cypress.Chainable {
   for (const [_media, _link] of Object.entries(socialMediaLinks)) {
     const getSocialLink = cy.get('footer').find(`a[href*="${_link}"]`);
     getSocialLink.should('be.visible'); // this only checks if the link is in the DOM
-    cy.wait(1000); // I really don't like it... Github actions seems really slow compared to paid CI.
     getSocialLink.then(($el) => {
       cy.window().then((window) => {
         const linkInViewport = isInViewport(window, $el);
